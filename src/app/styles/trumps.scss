@@ -1,0 +1,37 @@
+@use 'tools' as tools;
+
+.Snackbar {
+  .mdc-snackbar__surface {
+    background-color: tools.colors(black) !important;
+  }
+
+  button {
+    color: tools.colors(primary) !important;
+  }
+}
+
+a {
+  color: #fff;
+}
+
+.mat-mdc-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 50px;
+  background-color: tools.colors(extra-white);
+  width: auto;
+
+  button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 8px;
+    gap: tools.spacing(xs);
+    cursor: pointer;
+
+    &:hover {
+      background-color: tools.colors(light-grey);
+    }
+  }
+}

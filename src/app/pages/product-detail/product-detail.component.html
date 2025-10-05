@@ -1,0 +1,31 @@
+<main class="Detail">
+  <section class="Detail__content">
+    <span class="Detail__back" (click)="back()"><mat-icon>arrow_back</mat-icon> <span>Volver</span></span>
+
+    <article class="Detail__content__images">
+      <div class="Detail__content__images__main">
+        <div class="Detail__content__images__main__image">
+          <img
+            [style]="'view-transition-name: product-image-' + id() + '-' + 0"
+            [src]="product()?.image"
+          >
+        </div>
+      </div>
+    </article>
+    <article class="Detail__content__info">
+      <h4 class="Detail__content__info__subtitle">{{product()?.category}}</h4>
+      <h3 class="Detail__content__info__title" [style]="'view-transition-name: product-description-' + id()">{{product()?.name}}</h3>
+      <p class="Detail__content__info__price" [style]="'view-transition-name: product-title-' + id()"> ${{ product()?.price }}</p>
+      <p class="Detail__content__info__description"> {{product()?.description}}</p>
+
+      <app-gradient-button
+        class="Detail__content__info__contact"
+        (click)="addToCart()"
+        [viewTransitionName]="'app-gradient-button-' + id()"
+      >
+        <mat-icon>add</mat-icon>
+        Agregar al carrito
+      </app-gradient-button>
+    </article>
+  </section>
+</main>

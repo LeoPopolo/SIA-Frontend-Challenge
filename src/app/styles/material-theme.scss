@@ -1,0 +1,68 @@
+@use "@angular/material" as mat;
+@use "./tools.scss" as tools;
+@use "sass:color";
+@include mat.core();
+
+$primary-theme: (
+  50: color.adjust(tools.colors(primary), $lightness: -20%),
+  100: color.adjust(tools.colors(primary), $lightness: -15%),
+  200: color.adjust(tools.colors(primary), $lightness: -10%),
+  300: color.adjust(tools.colors(primary), $lightness: -5%),
+  400: color.adjust(tools.colors(primary), $lightness: 5%),
+  500: color.adjust(tools.colors(primary), $lightness: 10%),
+  600: color.adjust(tools.colors(primary), $lightness: 15%),
+  700: tools.colors(primary),
+  800: color.adjust(tools.colors(primary), $lightness: 20%),
+  900: color.adjust(tools.colors(primary), $lightness: 25%),
+  contrast: (
+    50: color.adjust(tools.colors(primary), $lightness: -50%),
+    100: color.adjust(tools.colors(primary), $lightness: -50%),
+    200: color.adjust(tools.colors(primary), $lightness: -50%),
+    300: color.adjust(tools.colors(primary), $lightness: -50%),
+    400: color.adjust(tools.colors(primary), $lightness: -50%),
+    500: color.adjust(tools.colors(primary), $lightness: 50%),
+    600: color.adjust(tools.colors(primary), $lightness: 50%),
+    700: color.adjust(tools.colors(primary), $lightness: 50%),
+    800: color.adjust(tools.colors(primary), $lightness: 50%),
+    900: color.adjust(tools.colors(primary), $lightness: 50%),
+  ),
+);
+
+$accent-theme: (
+  50: color.adjust(tools.colors(secondary), $lightness: -20%),
+  100: color.adjust(tools.colors(secondary), $lightness: -15%),
+  200: color.adjust(tools.colors(secondary), $lightness: -10%),
+  300: color.adjust(tools.colors(secondary), $lightness: -5%),
+  400: color.adjust(tools.colors(secondary), $lightness: 5%),
+  500: color.adjust(tools.colors(secondary), $lightness: 10%),
+  600: color.adjust(tools.colors(secondary), $lightness: 15%),
+  700: tools.colors(secondary),
+  800: color.adjust(tools.colors(secondary), $lightness: 20%),
+  900: color.adjust(tools.colors(secondary), $lightness: 25%),
+  contrast: (
+    50: color.adjust(tools.colors(secondary), $lightness: -50%),
+    100: color.adjust(tools.colors(secondary), $lightness: -50%),
+    200: color.adjust(tools.colors(secondary), $lightness: -50%),
+    300: color.adjust(tools.colors(secondary), $lightness: -50%),
+    400: color.adjust(tools.colors(secondary), $lightness: -50%),
+    500: color.adjust(tools.colors(secondary), $lightness: 50%),
+    600: color.adjust(tools.colors(secondary), $lightness: 50%),
+    700: color.adjust(tools.colors(secondary), $lightness: 50%),
+    800: color.adjust(tools.colors(secondary), $lightness: 50%),
+    900: color.adjust(tools.colors(secondary), $lightness: 50%),
+  ),
+);
+
+$mat-primary: mat.m2-define-palette($primary-theme);
+$mat-accent: mat.m2-define-palette($accent-theme);
+
+$mat-theme: mat.m2-define-light-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: $mat-primary,
+      accent: $mat-accent,
+    )
+  )
+);
+@include mat.all-component-themes($mat-theme);

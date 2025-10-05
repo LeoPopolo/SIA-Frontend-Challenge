@@ -1,0 +1,27 @@
+@use 'tools' as tools;
+
+.GradientButton {
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: tools.spacing(xs);
+  padding: tools.spacing(s) tools.spacing(m);
+  position: relative;
+  border-radius: 100px;
+  background-color: tools.colors(background);
+  color: tools.colors(black);
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg, tools.colors(primary), tools.colors(secondary));
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+}

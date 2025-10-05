@@ -1,0 +1,20 @@
+<main class="Card" (click)="onHandleAction()">
+  <section class="Card__image">
+    <img
+      [src]="currentImageUrl()"
+      [alt]="header()"
+      (error)="onImageError()"
+      [style]="'view-transition-name: product-image-' + id() + '-' + 0"
+    >
+  </section>
+
+  <section class="Card__content">
+    <p class="Card__content__header">{{header()}}</p>
+    <p class="Card__content__subheader">{{subHeader()}}</p>
+    <p class="Card__content__detail">{{detail()}}</p>
+  </section>
+
+  <footer class="Card__footer">
+    <app-gradient-button [viewTransitionName]="'relo-button-' + id()" >{{ actionTitle() }}</app-gradient-button>
+  </footer>
+</main>

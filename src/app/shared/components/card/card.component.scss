@@ -1,0 +1,60 @@
+@use 'tools' as tools;
+
+.Card {
+  & {
+    padding: tools.spacing(m);
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px 1px #cccccc80;
+  }
+
+  &__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: tools.spacing(m);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: tools.spacing(xs);
+    align-items: flex-start;
+
+    &__header {
+      font-weight: 700;
+      font-size: tools.fontSizes(m);
+    }
+
+    &__subheader {
+      font-weight: 500;
+      font-size: tools.fontSizes(s);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &__detail {
+      font-weight: 300;
+      font-size: tools.fontSizes(s);
+    }
+
+  }
+
+  &__footer {
+    margin-top: tools.spacing(m);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -1,0 +1,33 @@
+<main class="Home">
+  <section class="Home__content">
+    <h1 class="Home__content__title">Productos</h1>
+
+    <div class="Home__content__cards">
+      @if (loading()) {
+        @for (item of [1,2,3,4,5,6,7,8]; track $index) {
+          <div class="skeleton-card">
+            <div class="skeleton-image">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
+            <div class="skeleton-content">
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+              <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
+          </div>
+        }
+      } @else {
+        @for (product of products(); track $index) {
+          <app-card
+            [id]="product.id"
+            [header]="'$' + product.price"
+            [subHeader]="product.name"
+            [detail]="product.category"
+            [actionTitle]="'Ver producto'"
+            [imageUrl]="product.image"
+            (onAction)="gotoProductDetail(product.id)">
+          </app-card>
+        }
+      }
+    </div>
+  </section>
+</main>

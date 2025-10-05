@@ -1,0 +1,67 @@
+@use 'tools' as tools;
+
+.Home {
+  & {
+    padding: tools.spacing(xl);
+  }
+
+  &__content {
+    padding: tools.spacing(xl);
+
+    &__title {
+      text-align: center;
+      font-size: tools.fontSizes(l);
+      font-weight: 300;
+    }
+
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: tools.spacing(xxxl);
+      padding: tools.spacing(xxxl) 100px;
+
+      @media screen and (max-width: 768px) {
+        padding: tools.spacing(l);
+      }
+    }
+  }
+}
+
+.skeleton-card {
+  padding: tools.spacing(m);
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 1px #cccccc80;
+  width: 100%;
+  max-width: 350px;
+
+  .skeleton-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    margin-bottom: tools.spacing(m);
+    background-color: #f0f0f0;
+    overflow: hidden;
+  }
+
+  .skeleton-content {
+    display: flex;
+    flex-direction: column;
+    gap: tools.spacing(xs);
+    margin-bottom: tools.spacing(m);
+
+    mat-progress-bar {
+      height: 20px;
+      border-radius: 4px;
+
+      &:first-child {
+        height: 24px;
+        width: 60%;
+      }
+
+      &:last-child {
+        height: 16px;
+        width: 40%;
+      }
+    }
+  }
+}

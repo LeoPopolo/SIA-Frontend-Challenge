@@ -1,0 +1,202 @@
+@use "tools" as tools;
+
+.Detail {
+  & {
+    padding: tools.spacing(l);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: tools.colors(extra-white);
+    height: 100vh;
+
+    @media screen and (max-width: 768px) {
+      padding: 70px 20px 10dvh;
+      height: auto;
+    }
+  }
+
+  &__content {
+    width: 70%;
+    background-color: tools.colors(extra-white);
+    padding: tools.spacing(l);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: tools.spacing(xxxl);
+    height: 75%;
+    position: relative;
+
+    @media screen and (max-width: 1370px) {
+      width: 95%;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 95%;
+      height: auto;
+      padding: tools.spacing(xs);
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__images {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      box-shadow: 1px 1px 10px 1px #ddd;
+      background-color: tools.colors(total-white);
+      width: 600px;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        padding-block: 2em;
+      }
+
+      &__main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 600px;
+        height: 100%;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
+
+        &__image {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          overflow: hidden;
+          background-color: tools.colors(total-white);
+          height: 100%;
+
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            max-width: 450px;
+            max-height: 450px;
+
+            @media screen and (max-width: 768px) {
+              width: 100%;
+              height: 100%;
+              max-width: 250px;
+              max-height: 350px;
+            }
+          }
+        }
+      }
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      gap: tools.spacing(xs);
+
+      h3,
+      h4,
+      h5,
+      p {
+        text-align: start;
+
+        @media screen and (max-width: 768px) {
+          text-align: start;
+        }
+      }
+
+      &__title {
+        font-size: 30px;
+        color: tools.colors(black);
+        font-weight: 300;
+
+        @media screen and (max-width: 768px) {
+          font-size: 22px;
+        }
+      }
+
+      &__subtitle {
+        font-size: tools.fontSizes(s);
+        color: tools.colors(black);
+        font-weight: 600;
+
+        @media screen and (max-width: 768px) {
+          font-size: tools.fontSizes(s);
+        }
+      }
+
+      &__price {
+        margin-top: 20px;
+        font-size: 40px;
+        color: tools.colors(black);
+        font-weight: 400;
+
+        @media screen and (max-width: 768px) {
+          font-size: 25px;
+        }
+      }
+
+      &__text {
+        margin-top: tools.spacing(m);
+        font-size: tools.fontSizes(s);
+        font-weight: 500;
+
+        @media screen and (max-width: 768px) {
+          font-size: tools.fontSizes(s);
+        }
+      }
+
+      &__description {
+        font-size: tools.fontSizes(s);
+        font-weight: 400;
+        color: tools.colors(dark-grey);
+        line-height: tools.fontSizes(l);
+
+        @media screen and (max-width: 768px) {
+          font-size: tools.fontSizes(s);
+        }
+      }
+
+      &__values {
+        color: tools.colors(dark-grey);
+      }
+
+      &__contact {
+        margin-top: 50px;
+        text-align: end;
+        align-self: flex-start;
+
+        @media screen and (max-width: 768px) {
+          text-align: start;
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+
+  &__back {
+    display: inline-flex;
+    gap: tools.spacing(xs);
+    color: tools.colors(primary);
+    position: absolute;
+    top: -34px;
+    left: 0;
+    cursor: pointer;
+    font-size: tools.fontSizes(s);
+
+    @media screen and (max-width: 768px) {
+    }
+
+    span {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+}

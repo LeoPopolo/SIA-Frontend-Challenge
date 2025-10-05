@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use 'sass:color';
+@use "./settings.scss" as settings;
+
+@function colors($color) {
+  @return map.get(settings.$colors, $color);
+}
+
+@function fontSizes($fontSize) {
+  @return map.get(settings.$fontSizes, $fontSize);
+}
+
+@function spacing($spacing) {
+  @return map.get(settings.$spacing, $spacing);
+}
+
+

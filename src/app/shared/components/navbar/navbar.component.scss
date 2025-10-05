@@ -1,0 +1,22 @@
+@use 'tools' as tools;
+
+.Navbar {
+  & {
+    width: 100%;
+    background-color: tools.colors(background);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: tools.spacing(m) 100px;
+  }
+
+  &__brand {
+    font-size: tools.fontSizes(l);
+    font-weight: bold;
+    background: linear-gradient(45deg, tools.colors(primary), tools.colors(secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}

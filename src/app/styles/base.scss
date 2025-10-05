@@ -1,0 +1,16 @@
+@use 'tools' as tools;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: tools.colors(primary) transparent;
+}
+
+body {
+  height: auto;
+}
