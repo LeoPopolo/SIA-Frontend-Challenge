@@ -1,0 +1,14 @@
+@use 'tools' as tools;
+
+.Button {
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: tools.spacing(xs);
+  padding: tools.spacing(xs) tools.spacing(m);
+  position: relative;
+  border-radius: 100px;
+  background-color: tools.colors(primary);
+  color: tools.colors(extra-white);
+  cursor: pointer;
+}

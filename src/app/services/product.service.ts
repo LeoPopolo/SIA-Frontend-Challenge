@@ -7,13 +7,37 @@ import { of } from 'rxjs';
 })
 export class ProductService {
 
-  getProducts() {
-    return of(_dummyData);
+  getProducts(filters: { category: string | null; priceRange: number[]; searchFilter: string | null }) {
+    let filteredData = _dummyData;
+
+    if (filters.category) {
+      filteredData = filteredData.filter(item => item.category === filters.category);
+    }
+
+    if (filters.priceRange) {
+      filteredData = filteredData.filter(item => item.price >= filters.priceRange[0] && item.price <= filters.priceRange[1]);
+    }
+
+    if (filters.searchFilter) {
+      filteredData = filteredData.filter(item => item.name.toLowerCase().includes(filters.searchFilter!.toLowerCase()) || item.description.toLowerCase().includes(filters.searchFilter!.toLowerCase()));
+    }
+
+    return of(filteredData);
   }
 
   getProduct(id: number) {
     const product = _dummyData.find(item => item.id === id);
     return of(product);
+  }
+
+  getProductsCategories() {
+    const categories = Array.from(new Set(_dummyData.map(item => item.category)));
+    return of(categories);
+  }
+
+  getMoreExpensiveProduct() {
+    const sortedProducts = [..._dummyData].sort((a, b) => b.price - a.price);
+    return of(sortedProducts[0]);
   }
 }
 

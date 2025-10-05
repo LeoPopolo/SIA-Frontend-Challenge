@@ -1,0 +1,21 @@
+<main class="CartItem">
+
+  <section class="CartItem__image">
+    <img [src]="product().product.image" [alt]="product().product.name">
+  </section>
+
+  <p class="CartItem__name">{{product().product.name}}</p>
+  <p class="CartItem__price">${{product().product.price}}</p>
+
+  <section class="CartItem__quantity">
+    <mat-icon (click)="removeItem()">remove</mat-icon>
+    <p>{{product().quantity}}</p>
+    <mat-icon (click)="addItem()">add</mat-icon>
+  </section>
+
+  <p class="CartItem__subtotal">${{getSubtotal()}}</p>
+
+  <mat-icon class="CartItem__trash" (click)="deleteItem()">delete</mat-icon>
+
+</main>
+

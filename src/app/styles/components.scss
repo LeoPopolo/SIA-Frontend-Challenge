@@ -1,0 +1,9 @@
+@use 'tools' as tools;
+
+.Input {
+  width: 100%;
+  padding: tools.spacing(s) tools.spacing(m);
+  border: 1px solid #cccccc;
+  border-radius: 100px;
+  font-size: tools.fontSizes(xs);
+}

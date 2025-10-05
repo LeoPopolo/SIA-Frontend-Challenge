@@ -1,0 +1,55 @@
+@use 'tools' as tools;
+
+.Cart {
+  & {
+    padding: tools.spacing(xl);
+
+    @media screen and (max-width: 768px) {
+      padding: tools.spacing(m);
+    }
+  }
+
+  &__content {
+    padding: tools.spacing(xl) 100px;
+
+    @media screen and (max-width: 768px) {
+      padding: tools.spacing(s);
+    }
+
+    &__title {
+      text-align: center;
+      font-size: tools.fontSizes(l);
+      font-weight: 300;
+    }
+
+    &__items {
+      display: flex;
+      flex-direction: column;
+      gap: tools.spacing(xl);
+      margin-top: tools.spacing(xxxl);
+
+      &__empty {
+        text-align: center;
+        font-size: tools.fontSizes(m);
+        font-weight: 300;
+      }
+    }
+
+    &__footer {
+      margin: tools.spacing(giant) tools.spacing(xxl);
+      font-size: tools.fontSizes(l);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        gap: tools.spacing(m);
+        align-items: flex-start;
+        margin: 0;
+        margin-top: tools.spacing(xl);
+      }
+    }
+  }
+}

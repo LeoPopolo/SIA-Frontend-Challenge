@@ -1,0 +1,28 @@
+@use 'tools' as tools;
+
+.ThankYou {
+  & {
+    padding: tools.spacing(xl);
+  }
+
+  &__content {
+    padding: tools.spacing(xl) 100px;
+
+    &__title, &__code {
+      text-align: center;
+      font-size: tools.fontSizes(l);
+      font-weight: 300;
+    }
+
+    &__code {
+      margin-top: tools.spacing(xl);
+    }
+
+    &__back {
+      margin-top: tools.spacing(giant);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

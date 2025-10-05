@@ -1,0 +1,56 @@
+<main class="Filters">
+  <section class="Filters__section">
+    <div class="Filters__section__options">
+      <input
+        class="Input Filters__section__options__filter"
+        type="text"
+        [formControl]="searchFilter"
+        placeholder="Buscar productos..."
+      >
+    </div>
+
+  </section>
+
+  <section class="Filters__section">
+    <h3 class="Filters__section__title">Categorías</h3>
+    <div class="Filters__section__options">
+      @for (category of categories(); track $index) {
+        <label
+          class="Filters__section__options__label"
+          [class.Category--selected]="selectedCategory() === category"
+          (click)="handleCategoryChange(category)"
+        >{{ category }}</label>
+      }
+    </div>
+  </section>
+
+  <section class="Filters__section">
+    <h3 class="Filters__section__title">Rango de precios</h3>
+    <div class="Filters__section__options">
+      <div class="Filters__price-range">
+        <div class="Filters__price-labels">
+          <span>${{ currentPriceRange()[0] | number }}</span>
+          <span>${{ currentPriceRange()[1] | number }}</span>
+        </div>
+
+        <mat-slider
+          [min]="minPrice()"
+          [max]="maxPrice()"
+          [step]="1000"
+          discrete
+          [displayWith]="formatPrice">
+          <input
+            matSliderStartThumb
+            [value]="currentPriceRange()[0]"
+            (valueChange)="handlePriceRangeChange([$event, currentPriceRange()[1]])">
+          <input
+            matSliderEndThumb
+            [value]="currentPriceRange()[1]"
+            (valueChange)="handlePriceRangeChange([currentPriceRange()[0], $event])">
+        </mat-slider>
+      </div>
+    </div>
+  </section>
+
+  <app-simple-button class="Filters__clear-button" (click)="clearFilters()">Limpiar filtros</app-simple-button>
+</main>

@@ -1,6 +1,6 @@
 <nav class="Navbar">
   <span class="Navbar__brand" routerLink="/">Challenge</span>
 
-  <app-gradient-button class="Navbar__cart"> <mat-icon>shopping_cart</mat-icon> Carrito: $10000</app-gradient-button>
+  <app-gradient-button class="Navbar__cart" routerLink="/cart"> <mat-icon>shopping_cart</mat-icon> Carrito: ${{cartTotal$ | async}}</app-gradient-button>
 </nav>
 

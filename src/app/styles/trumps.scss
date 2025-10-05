@@ -2,11 +2,31 @@
 
 .Snackbar {
   .mdc-snackbar__surface {
-    background-color: tools.colors(black) !important;
+    background-color: tools.colors(extra-white) !important;
+    color: tools.colors(black) !important;
+    position: relative;
+    padding: 1em;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    font-weight: 500;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      background: linear-gradient(45deg, tools.colors(primary), tools.colors(secondary));
+      border-radius: inherit;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: xor;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+    }
   }
 
   button {
     color: tools.colors(primary) !important;
+    margin-left: 50px;
   }
 }
 

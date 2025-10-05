@@ -1,0 +1,61 @@
+@use 'tools' as tools;
+
+.Filters {
+  & {
+    display: flex;
+    flex-direction: column;
+    gap: tools.spacing(m);
+    padding: tools.spacing(m);
+    margin-top: tools.spacing(huge);
+
+    @media screen and (max-width: 768px) {
+      margin-top: tools.spacing(s);
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: tools.spacing(s);
+
+    &__options {
+      display: flex;
+      flex-direction: column;
+      gap: tools.spacing(s);
+
+      &__label {
+        cursor: pointer;
+        font-weight: 500;
+        color: tools.colors(black);
+      }
+
+      &__filter {
+        margin-bottom: tools.spacing(m);
+      }
+    }
+  }
+
+  &__price-range {
+    width: 100%;
+    padding: tools.spacing(m);
+  }
+
+  &__price-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: tools.spacing(s);
+    font-weight: 500;
+    color: tools.colors(primary);
+  }
+
+  mat-slider {
+    width: 100%;
+  }
+}
+
+.Category {
+  &--selected {
+    color: tools.colors(primary);
+    font-weight: 600;
+  }
+}

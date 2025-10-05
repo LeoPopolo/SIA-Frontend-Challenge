@@ -4,6 +4,8 @@ import { Product } from '@models/product.model';
 import { ProductService } from '@services/product.service';
 import { GradientButtonComponent } from "@shared/components/buttons/gradient-button/gradient-button.component";
 import { Location } from '@angular/common';
+import { CartService } from '@services/cart.service';
+import { SnackbarService } from '@shared/services/snackbar.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,6 +17,8 @@ import { Location } from '@angular/common';
 })
 export class ProductDetailComponent {
   private readonly productService = inject(ProductService);
+  private readonly cartService = inject(CartService);
+  private readonly snackbarService = inject(SnackbarService);
   private readonly location = inject(Location);
 
   id = input<string | null>(null);
@@ -37,6 +41,12 @@ export class ProductDetailComponent {
 
   addToCart() {
     const product = this.product();
+
+    if (product) {
+      this.cartService.setItemToCart(product);
+
+      this.snackbarService.open('Producto agregado al carrito');
+    }
   }
 
   back() {

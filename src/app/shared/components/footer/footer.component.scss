@@ -1,21 +1,17 @@
 @use 'tools' as tools;
 
-.Navbar {
+.Footer {
   & {
     width: 100%;
     background-color: tools.colors(background);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: tools.spacing(m) 100px;
-
-    @media screen and (max-width: 768px) {
-      padding: tools.spacing(s);
-    }
   }
 
   &__brand {
-    font-size: tools.fontSizes(l);
+    font-size: tools.fontSizes(s);
     font-weight: bold;
     background: linear-gradient(45deg, tools.colors(primary), tools.colors(secondary));
     -webkit-background-clip: text;
@@ -23,9 +19,6 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
     cursor: pointer;
-
-    @media screen and (max-width: 768px) {
-      font-size: tools.fontSizes(m);
-    }
+    text-align: center;
   }
 }

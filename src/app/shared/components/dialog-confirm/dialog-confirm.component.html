@@ -1,0 +1,15 @@
+<main class="Dialog">
+  <h1 class="Dialog__title">{{title()}}</h1>
+
+  @if (text()) {
+    <p class="Dialog__text">{{text()}}</p>
+  }
+
+  @if (safeHtml()) {
+    <div [innerHTML]="safeHtml()"></div>
+  }
+
+  <footer class="Dialog__footer">
+    <app-simple-button (click)="confirm()">Aceptar</app-simple-button>
+  </footer>
+</main>
